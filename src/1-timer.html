@@ -4,26 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timer</title>
+    <title>Page 2</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/timer.css" />
   </head>
   <body>
-    <load
-      src="./partials/header.html"
-      icon-path="./img/sprite.svg#logo"
-      highlight-act="active"
-    />
-
     <main>
       <div class="container">
-        <load src="./partials/back-link.html" />
-
+        <a class="back-link" href="./index.html">Go back</a>
         <h1 class="main-title">
           <span class="main-title-gradient">Timer</span>
         </h1>
-        
         <input type="text" id="datetime-picker" />
-        <button type="button" data-start>Start</button>
+        <button class="start-btn" type="button" data-start>Start</button>
 
         <div class="timer">
           <div class="field">
@@ -43,7 +36,6 @@
             <span class="label">Seconds</span>
           </div>
         </div>
-
       </div>
     </main>
 
