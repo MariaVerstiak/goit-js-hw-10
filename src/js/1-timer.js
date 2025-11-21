@@ -32,16 +32,14 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
 function startCountdown() {
   startBtn.disabled = true;
   inputField.disabled = true;
+
   const countDown = setInterval(() => {
     const now = new Date();
     const timeInterval = userSelectedDate - now;
 
     if (timeInterval <= 0) {
-      clearInterval(countDown);
       updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      startBtn.disabled = false;
       inputField.disabled = false;
-      clearInterval(countDown);
       return;
     }
 
@@ -54,12 +52,14 @@ const refs = {
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
-  seconds: document.querySelector('[data-seconds]'),
+  seconds: document.querySelector('[data-seconds]')
 };
 
 let userSelectedDate = null;
-const startBtn = document.querySelector('.start-btn');
+
+const startBtn = document.querySelector('[data-start]');
 const inputField = document.querySelector('#datetime-picker');
+
 startBtn.disabled = true;
 
 const options = {
@@ -71,16 +71,16 @@ const options = {
     if (selectedDates[0] <= new Date()) {
       iziToast.error({
         title: 'Please choose a date in the future',
-        position: 'topRight',
+        position: 'topRight'
       });
       startBtn.disabled = true;
       return;
     }
+
     startBtn.disabled = false;
     userSelectedDate = selectedDates[0];
-  },
+  }
 };
 
-const inputFiels = flatpickr(inputField, options);
-
+flatpickr(inputField, options);
 startBtn.addEventListener('click', startCountdown);
